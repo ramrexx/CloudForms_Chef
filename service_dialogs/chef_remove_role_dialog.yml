@@ -1,0 +1,55 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: chef_remove_role_dialog
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: Chef
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: chef_role
+        description: Choose a Chef Role
+        type: DialogFieldDropDownList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: []
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Role
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: true
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/Chef
+          ae_class: DynamicDialogs
+          ae_instance: chef_list_remove_role_names
+          ae_message: 
+          ae_attributes: {}

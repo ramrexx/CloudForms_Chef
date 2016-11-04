@@ -1,0 +1,127 @@
+---
+- MiqWidget:
+    guid: 7d478296-a13e-11e6-af9e-0050569f5d71
+    description: Chef Bootstrap Report
+    title: Chef Bootstrap Report
+    content_type: report
+    options:
+      :row_count: 5
+      :col_order:
+      - name
+      - hardware.ipaddresses
+      - miq_custom_attributes.name
+      - miq_custom_attributes.value
+    visibility:
+      :roles:
+      - _ALL_
+    user_id: 
+    resource_id: 12000000000176
+    resource_type: MiqReport
+    enabled: true
+    read_only: false
+    MiqReportContent:
+    - MiqReport:
+        title: Chef Bootstrap Report
+        rpt_group: Custom
+        rpt_type: Custom
+        priority: 
+        db: Vm
+        cols:
+        - name
+        - hostnames
+        include:
+          hardware:
+            columns:
+            - ipaddresses
+          miq_custom_attributes:
+            columns:
+            - name
+            - value
+        col_order:
+        - name
+        - hostnames
+        - hardware.ipaddresses
+        - miq_custom_attributes.name
+        - miq_custom_attributes.value
+        headers:
+        - VM
+        - Hostname(s)
+        - IP Addresses
+        - Name
+        - Value
+        conditions: !ruby/object:MiqExpression
+          exp:
+            FIND:
+              search:
+                REGULAR EXPRESSION MATCHES:
+                  field: Vm.miq_custom_attributes-name
+                  value: CHEF
+              checkall:
+                IS NOT NULL:
+                  field: Vm.miq_custom_attributes-value
+          context_type: 
+        order: Ascending
+        sortby: 
+        group: 
+        graph: 
+        dims: 
+        filename: 
+        file_mtime: 
+        categories: []
+        timeline: 
+        template_type: report
+        where_clause: 
+        db_options: {}
+        generate_cols: 
+        generate_rows: 
+        col_formats:
+        - 
+        - 
+        - 
+        - 
+        - 
+        tz: 
+        time_profile_id: 
+        display_filter: 
+        col_options: {}
+        rpt_options:
+          :pdf:
+            :page_size: US-Letter
+          :queue_timeout: 
+        miq_group_id: 12000000000002
+        user_id: 12000000000001
+        menu_name: Chef Bootstrap Report
+    MiqSchedule:
+      name: Chef Bootstrap Report
+      description: Chef Bootstrap Report
+      sched_action:
+        :method: generate_widget
+      filter: !ruby/object:MiqExpression
+        exp:
+          "=":
+            field: MiqWidget.id
+            value: 12000000000048
+        context_type: 
+        ruby: <value ref=miqwidget, type=string>/virtual/id</value> == "12000000000048"
+        col_details:
+          MiqWidget.id:
+            :data_type: 
+            :virtual_reflection: true
+            :virtual_column: true
+            :excluded_by_preprocess_options: false
+            :tag: false
+            :include:
+              :id: {}
+        pexp: 
+      towhat: MiqWidget
+      run_at:
+        :start_time: 2016-11-02 07:15:00.000000000 Z
+        :tz: Pacific Time (US & Canada)
+        :interval:
+          :unit: hourly
+          :value: 1
+      enabled: true
+      userid: system
+      prod_default: system
+      adhoc: 
+      file_depot_id: 

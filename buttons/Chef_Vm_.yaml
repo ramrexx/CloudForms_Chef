@@ -1,0 +1,218 @@
+---
+:custom_buttons_sets:
+- name: Chef|Vm|
+  description: Chef
+  set_type: CustomButtonSet
+  read_only: 
+  mode: 
+  custom_buttons:
+  - description: Bootstrap (Advanced)
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 4
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Bootstrap (Advanced)
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_bootstrap
+      dialog_label: chef_bootstrap_with_run_list
+  - description: Retire Chef Node & Client
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 7
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Retire
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_retire
+  - description: Remove Chef Cookbook
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 7
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Remove Cookbook
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_remove_cookbook
+      dialog_label: chef_remove_cookbook_dialog
+  - description: Add Chef Cookbook
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 5
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Add Cookbook
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_add_cookbook
+      dialog_label: chef_add_cookbook_dialog
+  - description: Remove Chef Recipe
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 8
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Remove Recipe
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_remove_recipe
+      dialog_label: chef_remove_recipe_dialog
+  - description: Remove Role
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 7
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Remove Role
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_remove_role
+      dialog_label: chef_remove_role_dialog
+  - description: Bootstrap Chef Node
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 15
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Bootstrap
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_bootstrap
+  - description: Add Chef Recipe
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 2
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Add Recipe
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_bootstrap
+      dialog_label: chef_add_recipe_dialog
+  - description: Add Chef Role
+    applies_to_class: Vm
+    applies_to_exp: 
+    options:
+      :button_image: 1
+      :display: true
+    userid: admin
+    wait_for_complete: 
+    name: Add Role
+    visibility:
+      :roles:
+      - _ALL_
+    applies_to_id: 
+    resource_actions:
+      action: 
+      ae_namespace: SYSTEM
+      ae_class: PROCESS
+      ae_instance: Request
+      ae_message: 
+      ae_attributes:
+        request: chef_add_role
+      dialog_label: chef_add_role_dialog
+  set_data:
+    :button_order:
+    - Add Role
+    - Remove Role
+    - Add Recipe
+    - Remove Recipe
+    - Add Cookbook
+    - Remove Cookbook
+    - Bootstrap
+    - Retire
+    - Bootstrap (Advanced)
+    :button_image: 13
+    :display: true
+    :group_index: 8

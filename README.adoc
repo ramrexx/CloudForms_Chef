@@ -1,0 +1,79 @@
+////
+ README.adoc
+-------------------------------------------------------------------------------
+   Copyright 2016 Kevin Morey <kevin@redhat.com>
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-------------------------------------------------------------------------------
+////
+
+= CloudForms Chef
+
+The purpose of this project is to provide a starting point for integrating Red Hat (R) https://www.redhat.com/en/technologies/cloud-computing/cloudforms[Red Hat CloudForms] and Chef.
+
+== Table of Contents
+
+* <<Overview>>
+* <<Install rhconsulting Scripts>>
+* <<Download Repo>>
+* <<Import the Automate Domain>>
+* <<Import the Service Dialogs>>
+* <<Import the Custom Buttons>>
+* <<Import the Widgets>>
+* <<Contribute>>
+
+=== Overview
+COMING SOON!
+
+=== Install rhconsulting Scripts
+
+Follow these steps to install the miqimport/miqexport utilities:
+
+While in `/root` directory, download the rhconsulting repository
+
+ curl -sL  https://github.com/rhtconsulting/cfme-rhconsulting-scripts/tarball/master | tar xvz
+
+Change to the newly created `/root/rhtconsulting-cfme-rhconsulting-scripts` directory, install the rake scripts and utilities:
+
+ make install
+
+The `/usr/bin/miqimport` and `/usr/bin/miqexport` utilities are now available to assist you when importing and exporting from CloudForms.
+
+=== Download Repo
+
+ cd /root
+ curl -sL  https://github.com/ramrexx/CloudForms_Chef/tarball/master | tar xvz
+
+=== Import the Automate Domain
+
+ /usr/bin/miqimport domain CloudForms_Chef /root/ramrexx-CloudForms_Chef/automate/
+
+=== Import the Service Dialogs
+
+ /usr/bin/miqimport service_dialogs /root/ramrexx-CloudForms_Chef/service_dialogs/
+
+=== Import the Custom Buttons
+
+ /usr/bin/miqimport buttons /root/ramrexx-CloudForms_Chef/buttons/
+
+=== Import the Widgets
+
+ /usr/bin/miqimport widgets /root/ramrexx-CloudForms_Chef/widgets/
+
+<<top>>
+
+== Contribute
+
+Have an idea and want to help? Fork the repo and link:https://github.com/ramrexx/CloudForms_Chef/pulls[Submit a pull request]
+
+<<top>>

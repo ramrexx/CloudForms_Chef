@@ -1,0 +1,127 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: chef_bootstrap_with_run_list
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: Chef
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: Information
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: chef_cookbook
+        description: Choose a Chef Cookbook
+        type: DialogFieldDropDownList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: []
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Cookbook
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: true
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/Chef
+          ae_class: DynamicDialogs
+          ae_instance: chef_list_add_cookbook_names
+          ae_message: 
+          ae_attributes: {}
+      - name: chef_role
+        description: Choose a Chef Role
+        type: DialogFieldDropDownList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: []
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Role
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: true
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/Chef
+          ae_class: DynamicDialogs
+          ae_instance: chef_list_add_role_names
+          ae_message: 
+          ae_attributes: {}
+      - name: chef_recipe
+        description: Choose a Chef Recipe
+        type: DialogFieldDropDownList
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values: []
+        values_method: 
+        values_method_options: {}
+        options: {}
+        label: Recipe
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: true
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/Chef
+          ae_class: DynamicDialogs
+          ae_instance: chef_list_add_recipe_names
+          ae_message: 
+          ae_attributes: {}

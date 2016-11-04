@@ -1,0 +1,12 @@
+---
+object_type: domain
+version: 1.0
+object:
+  attributes:
+    name: CloudForms_Chef
+    description: Chef Automate Integrations
+    display_name: 
+    system: false
+    priority: 6
+    enabled: true
+    tenant_id: 12000000000001

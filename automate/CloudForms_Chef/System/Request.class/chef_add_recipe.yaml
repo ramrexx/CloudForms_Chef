@@ -1,0 +1,12 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: chef_add_recipe
+    inherits: 
+    description: 
+  fields:
+  - rel1:
+      value: "/Integration/Chef/StateMachines/chef_add_recipe"

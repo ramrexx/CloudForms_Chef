@@ -1,0 +1,14 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: chef_remove_role
+    inherits: 
+    description: 
+  fields:
+  - step1:
+      value: METHOD::chef_bootstrap_check
+  - step5:
+      value: METHOD::chef_remove_role

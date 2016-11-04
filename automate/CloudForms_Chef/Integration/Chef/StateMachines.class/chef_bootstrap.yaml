@@ -1,0 +1,24 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: chef_bootstrap
+    inherits: 
+    description: 
+  fields:
+  - step1:
+      value: METHOD::chef_bootstrap_check
+  - step2:
+      value: METHOD::chef_wait_for_ip
+  - step3:
+      value: METHOD::chef_bootstrap
+  - step4:
+      value: METHOD::chef_bootstrap_check
+  - step5:
+      value: METHOD::chef_add_role
+  - step6:
+      value: METHOD::chef_add_cookbook
+  - step7:
+      value: METHOD::chef_add_recipe
