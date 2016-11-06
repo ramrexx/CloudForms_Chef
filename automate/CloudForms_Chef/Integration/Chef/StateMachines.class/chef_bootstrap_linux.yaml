@@ -1,0 +1,30 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: chef_bootstrap_linux
+    inherits: 
+    description: 
+  fields:
+  - username:
+      value: root
+  - password:
+      value: v2:{zNMqHYJ2hQzgrEJuB3KbJg==}
+  - port:
+      value: '22'
+  - step2:
+      value: METHOD::chef_bootstrap_check
+  - step3:
+      value: METHOD::chef_wait_for_ip
+  - step4:
+      value: METHOD::chef_bootstrap_linux
+  - step5:
+      value: METHOD::chef_bootstrap_check
+  - step6:
+      value: METHOD::chef_add_role
+  - step7:
+      value: METHOD::chef_add_cookbook
+  - step8:
+      value: METHOD::chef_add_recipe

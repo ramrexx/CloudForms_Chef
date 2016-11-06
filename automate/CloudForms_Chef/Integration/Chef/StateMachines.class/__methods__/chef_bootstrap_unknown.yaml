@@ -3,7 +3,7 @@ object_type: method
 version: 1.0
 object:
   attributes:
-    name: chef_bootstrap
+    name: chef_bootstrap_unknown
     display_name: 
     description: 
     scope: instance

@@ -106,8 +106,10 @@ if result.success?
           if crl == "recipe[#{chef_type}::#{item}]"
             dialog_hash[item] = "#{chef_type} - #{item}"
           end
+        elsif crl == "#{chef_type}[#{item}]"
+          dialog_hash[item] = "#{chef_type} - #{item}"
         else
-          log(:info, "skipping current run_list item: #{item}")
+          log(:info, "skipping current run_list #{chef_type}: #{item}")
         end
       end
     else

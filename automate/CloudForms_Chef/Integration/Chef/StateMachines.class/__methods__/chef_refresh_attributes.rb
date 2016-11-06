@@ -1,9 +1,9 @@
 =begin
- chef_bootstrap_check.rb
+ chef_refresh_attributes.rb
 
  Author: Kevin Morey <kevin@redhat.com>
 
- Description: This method checks to see if the VM has already been bootstrapped
+ Description: This method uses knife refresh Chef client attributes
 -------------------------------------------------------------------------------
    Copyright 2016 Kevin Morey <kevin@redhat.com>
 
@@ -36,9 +36,9 @@ def call_chef(cmd, timeout=20)
       log(:info, "Executing [#{cmd}] with timeout of #{timeout} seconds")
       result = LinuxAdmin::Common.run("#{pre_cmd};#{cmd}")
       log(:info, "success?: #{result.success?}")
-      log(:info, "exit_status: #{result.exit_status}")
+      log(:info, "exit_status: #{result.exit_status}") unless result.exit_status.blank?
       log(:info, "output: #{result.output}")
-      log(:info, "error: #{result.error.inspect}")
+      log(:info, "error: #{result.error}") unless result.error.blank?
       return result
     }
   rescue => timeout
@@ -47,30 +47,21 @@ def call_chef(cmd, timeout=20)
   end
 end
 
-def get_chef_environment_name
-  chef_environment = $evm.object['chef_environment']
-  chef_environment ||= $evm.root['dialog_chef_environment']
-  chef_environment ||= @task.get_tags[:chef_environment] if @task
-  chef_environment ||= "_default"
-  log(:info, "chef_environment: #{chef_environment}")
-  return chef_environment_name
-end
-
-def get_domain_suffix
-  domain_suffix   = nil
-  domain_suffix ||= $evm.object['domain_suffix']
-  domain_suffix ||= $evm.root['dialog_domain_suffix']
-  domain_suffix ||= @task.get_tags[:domain_suffix] if @task
-  log(:info, "domain_suffix: #{domain_suffix}")
-  return domain_suffix
-end
-
 def get_chef_node_name
-  chef_node_name = "#{@vm.name}"
-  unless get_domain_suffix.nil?
-    chef_node_name = "#{@vm.name}.#{get_domain_suffix}"
+  chef_node_name = (@vm.hostnames.first rescue nil)
+  if @task
+    chef_node_name = @task.get_option(:vm_target_hostname)
   end
+  chef_node_name ||= @vm.name
+  log(:info, "chef_node_name: #{chef_node_name}")
   return chef_node_name
+end
+
+def update_vm_custom_attributes(output, chef_node_name)
+  chef_runlist_attribute = "CHEF Run List"
+  run_list = JSON.parse(output)["#{chef_node_name}"]["run_list"]
+  log(:debug, "#{chef_runlist_attribute} #{chef_node_name}: #{run_list}")
+  @vm.custom_set(chef_runlist_attribute, run_list)
 end
 
 begin
@@ -79,20 +70,16 @@ begin
 
   chef_bootstrap_attribute = "CHEF Bootstrapped"
 
-  chef_node_show_command = "/usr/bin/knife node show #{get_chef_node_name} "
-  # chef_node_show_command = "/usr/bin/knife node show #{get_chef_node_name} -a name -a chef_environment -F json"
+  bootstrapped = $evm.get_state_var(chef_bootstrap_attribute)
+  if bootstrapped =~ (/(true|t|yes|y|1)$/i)
 
-  chef_node_show_response = call_chef(chef_node_show_command)
-  log(:info, "chef_node_show_response: #{chef_node_show_response}")
-  if chef_node_show_response.success?
-    bootstrapped = 'true'
-    log(:info, "vm: #{get_chef_node_name} already exists in chef server")
-    log(:info, "set_state_var: {#{chef_bootstrap_attribute}=>bootstrapped}")
-    $evm.set_state_var(chef_bootstrap_attribute, bootstrapped)
-    @vm.custom_set(chef_bootstrap_attribute, bootstrapped)
-  else
-    log(:info, "vm: #{get_chef_node_name} not found in chef server")
-    @vm.custom_set(chef_bootstrap_attribute, nil)
+    chef_node_name = get_chef_node_name
+
+    current_run_list_cmd = "/usr/bin/knife node show #{chef_node_name} -r -l -F json"
+    current_run_list_result = call_chef(current_run_list_cmd, 20)
+    if current_run_list_result.success?
+      update_vm_custom_attributes(current_run_list_result.output, chef_node_name)
+    end
   end
 
   # Ruby rescue

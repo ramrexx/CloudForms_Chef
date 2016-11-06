@@ -1,9 +1,9 @@
 =begin
- chef_bootstrap.rb
+ chef_bootstrap_linux.rb
 
- Author: Kevin Morey <kevin@redhat.com>, Dave Costakos <david.costakos@redhat.com>
+ Author: Kevin Morey <kevin@redhat.com>
 
- Description: This method uses knife to bootstrap a Chef client
+ Description: This method uses knife to bootstrap a Chef client on linux
 -------------------------------------------------------------------------------
    Copyright 2016 Kevin Morey <kevin@redhat.com>
 
@@ -132,7 +132,7 @@ begin
 
   unless bootstrapped =~ (/(true|t|yes|y|1)$/i)
     bootstrap_cmd  = "/usr/bin/knife bootstrap #{primary_ipaddress} -x '#{username}' -P '#{password}' "
-    bootstrap_cmd += "-E #{chef_environment} -y -N #{chef_node_name} -F json"
+    bootstrap_cmd += "-E #{chef_environment} -y -N #{chef_node_name} -F json "
     bootstrap_cmd += "--node-ssl-verify-mode none "
     
     if chef_version

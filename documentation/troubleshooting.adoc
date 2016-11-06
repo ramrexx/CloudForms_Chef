@@ -19,7 +19,18 @@
 ////
 
 = CloudForms_Chef Troubleshooting Guide
-COMING SOON!
+
+
+== Table of Contents
+
+* <<Problems running Knife>>
+
+=== Problems running Knife
+
+* If knife is not working it is most likely related to:
+** Your knife.rb file is not configured properly
+** The client_key (i.e. root.pem or validator.pem) is not valid
+
 
 == Open an Issue
 ** Still stuck? Open an issue here with a detailed description of your problem: link:https://github.com/ramrexx/CloudForms_Chef/issues[Open an issue]

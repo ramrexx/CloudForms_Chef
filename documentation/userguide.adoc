@@ -22,5 +22,161 @@
 Coming Soon!
 
 == Table of Contents
+
+* <<Bootstrap via Custom Button>>
+* <<Add Role via Custom Button>>
+* <<Remove Role via Custom Button>>
+* <<Add Recipe via Custom Button>>
+* <<Remove Recipe via Custom Button>>
+* <<Add Cookbook via Custom Button>>
+* <<Remove Cookbook via Custom Button>>
+* <<Retire Chef Node/Client via Custom Button>>
+*
 * link:troubleshooting.adoc[Troubleshooting Guide]
 
+=== Bootstrap via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM.
+* Under the *Chef* button group select *Bootstrap*.
+
+image:images/vm-bootstrap-button.png[link=images/vm-bootstrap-button.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. Keep in mind that it could take a minute or so for the attributes to show up.
+
+image:images/vm-bootstrap-customattributes.png[link=images/vm-bootstrap-customattributes.png]
+
+<<top>>
+
+=== Add Role via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM.
+* Under the *Chef* button group select *Add Chef Role*.
+
+image:images/vm-addrole-button.png[link=images/vm-addrole-button.png]
+
+* Choose an available role and Submit.
+
+image:images/vm-addrole-dialog.png[link=images/vm-addrole-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-addrole-customattributes.png[link=images/vm-addrole-customattributes.png]
+
+<<top>>
+
+=== Remove Role via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM where you have previously added a Chef role.
+* Under the *Chef* button group select *Remove Chef Role*.
+
+image:images/vm-removerole-button.png[link=images/vm-removerole-button.png]
+
+* Choose an existing role and Submit.
+
+image:images/vm-removerole-dialog.png[link=images/vm-removerole-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-removerole-customattributes.png[link=images/vm-removerole-customattributes.png]
+
+<<top>>
+
+=== Add Recipe via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM.
+* Under the *Chef* button group select *Add Chef Role*.
+
+image:images/vm-addrecipe-button.png[link=images/vm-addrecipe-button.png]
+
+* Choose an available recipe and Submit.
+
+image:images/vm-addrecipe-dialog.png[link=images/vm-addrecipe-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-addrecipe-customattributes.png[link=images/vm-addrecipe-customattributes.png]
+
+<<top>>
+
+=== Remove Recipe via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM where you have previously added a Chef recipe.
+* Under the *Chef* button group select *Remove Chef Role*.
+
+image:images/vm-removerecipe-button.png[link=images/vm-removerecipe-button.png]
+
+* Choose an existing recipe and Submit.
+
+image:images/vm-removerecipe-dialog.png[link=images/vm-removerecipe-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-removerecipe-customattributes.png[link=images/vm-removerecipe-customattributes.png]
+
+<<top>>
+
+=== Add Cookbook via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM.
+* Under the *Chef* button group select *Add Chef Cookbook*.
+
+image:images/vm-addcookbook-button.png[link=images/vm-addcookbook-button.png]
+
+* Choose an available cookbook and Submit.
+
+image:images/vm-addcookbook-dialog.png[link=images/vm-addcookbook-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-addcookbook-customattributes.png[link=images/vm-addcookbook-customattributes.png]
+
+<<top>>
+
+=== Remove Cookbook via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM where you have previously added a Chef cookbook.
+* Under the *Chef* button group select *Remove Chef cookbook*.
+
+image:images/vm-removecookbook-button.png[link=images/vm-removecookbook-button.png]
+
+* Choose an existing cookbook and Submit.
+
+image:images/vm-removecookbook-dialog.png[link=images/vm-removecookbook-dialog.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. You should see that the run_list has been updated.
+
+image:images/vm-removecookbook-customattributes.png[link=images/vm-removecookbook-customattributes.png]
+
+<<top>>
+
+=== Retire Chef Node/Client via Custom Button
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to a VM where you have previously bootstrapped a Chef client.
+* Under the *Chef* button group select *Retire Chef Client*.
+
+image:images/vm-retire-button.png[link=images/vm-retire-button.png]
+
+* Navigate back to your VM. At the bottom of the summary page you should see all `Chef` *Custom Attributes* and `Tags` cleared.
+
+<<top>>
+
+=== Bootstrap via Provisioning
+
+You can add the bootstrap workflow to your provisioning statemachine by adding the following to a step after the `check_provision` step:
+
+ /Integration/Chef/StateMachines/chef_bootstrap_${/#miq_provision.source.platform}
+
+
+image:images/prov-bootstrap-statemachine.png[link=images/prov-bootstrap-statemachine.png]
+
+
+
+<<top>>

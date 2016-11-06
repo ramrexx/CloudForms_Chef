@@ -4,9 +4,9 @@ version: 1.0
 object:
   attributes:
     display_name: 
-    name: chef_bootstrap
+    name: chef_refresh_attributes
     inherits: 
     description: 
   fields:
   - rel1:
-      value: "/Integration/Chef/StateMachines/chef_bootstrap_${/#vm.platform} "
+      value: "/Integration/Chef/StateMachines/chef_refresh_attributes"

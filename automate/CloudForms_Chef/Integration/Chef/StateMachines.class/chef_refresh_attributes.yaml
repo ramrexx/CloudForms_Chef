@@ -4,15 +4,11 @@ version: 1.0
 object:
   attributes:
     display_name: 
-    name: chef_retire
+    name: chef_refresh_attributes
     inherits: 
     description: 
   fields:
   - step1:
       value: METHOD::chef_bootstrap_check
   - step3:
-      value: METHOD::chef_delete_client
-  - step5:
-      value: METHOD::chef_delete_node
-  - step7:
-      value: METHOD::chef_clear_attributes
+      value: METHOD::chef_refresh_attributes

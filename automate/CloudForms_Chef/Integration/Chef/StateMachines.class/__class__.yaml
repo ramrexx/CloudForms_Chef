@@ -53,10 +53,30 @@ object:
       max_time: 
   - field:
       aetype: attribute
-      name: chef_version
+      name: port
       display_name: 
       datatype: string
       priority: 3
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: attribute
+      name: chef_version
+      display_name: 
+      datatype: string
+      priority: 4
       owner: 
       default_value: 
       substitute: true
@@ -76,7 +96,7 @@ object:
       name: chef_environment
       display_name: 
       datatype: string
-      priority: 4
+      priority: 5
       owner: 
       default_value: 
       substitute: true
@@ -92,11 +112,11 @@ object:
       max_retries: 
       max_time: 
   - field:
-      aetype: attribute
-      name: domain_suffix
+      aetype: relationship
+      name: rel1
       display_name: 
       datatype: string
-      priority: 5
+      priority: 6
       owner: 
       default_value: 
       substitute: true
@@ -116,7 +136,7 @@ object:
       name: step1
       display_name: 
       datatype: string
-      priority: 6
+      priority: 7
       owner: 
       default_value: 
       substitute: true
@@ -136,7 +156,7 @@ object:
       name: step2
       display_name: 
       datatype: string
-      priority: 7
+      priority: 8
       owner: 
       default_value: 
       substitute: true
@@ -156,7 +176,7 @@ object:
       name: step3
       display_name: 
       datatype: string
-      priority: 8
+      priority: 9
       owner: 
       default_value: 
       substitute: true
@@ -176,7 +196,7 @@ object:
       name: step4
       display_name: 
       datatype: string
-      priority: 9
+      priority: 10
       owner: 
       default_value: 
       substitute: true
@@ -196,7 +216,7 @@ object:
       name: step5
       display_name: 
       datatype: string
-      priority: 10
+      priority: 11
       owner: 
       default_value: 
       substitute: true
@@ -216,7 +236,7 @@ object:
       name: step6
       display_name: 
       datatype: string
-      priority: 11
+      priority: 12
       owner: 
       default_value: 
       substitute: true
@@ -236,7 +256,7 @@ object:
       name: step7
       display_name: 
       datatype: string
-      priority: 12
+      priority: 13
       owner: 
       default_value: 
       substitute: true
@@ -256,7 +276,47 @@ object:
       name: step8
       display_name: 
       datatype: string
-      priority: 13
+      priority: 14
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: on_error
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: step9
+      display_name: 
+      datatype: string
+      priority: 15
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: on_error
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: step10
+      display_name: 
+      datatype: string
+      priority: 16
       owner: 
       default_value: 
       substitute: true
