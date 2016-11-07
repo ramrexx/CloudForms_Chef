@@ -144,10 +144,16 @@ NOTE: knife.rb must be correctly configured. More info: https://docs.chef.io/con
 * Navigate to Automate / CloudForms_Chef / Integration / Chef / StateMachines
 ** Add your guest OS credentials to each instance below:
 *** chef_bootstrap_linux
+
+image:documentation/images/chef-bootstrap-linux.png[link=documentation/images/chef-bootstrap-linux.png]
+
 *** chef_bootstrap_unknown
+
+image:documentation/images/chef-bootstrap-unknown.png[link=documentation/images/chef-bootstrap-unknown.png]
+
 *** chef_bootstrap_windows
 
-image:documentation/images/chef-automate-instance.png[link=documentation/images/chef-automate-instance.png]
+image:documentation/images/chef-bootstrap-windows.png[link=documentation/images/chef-bootstrap-windows.png]
 
 <<top>>
 
