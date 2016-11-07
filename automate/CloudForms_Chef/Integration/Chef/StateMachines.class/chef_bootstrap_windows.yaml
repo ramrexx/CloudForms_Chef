@@ -8,10 +8,6 @@ object:
     inherits: 
     description: 
   fields:
-  - username:
-      value: Administrator
-  - port:
-      value: '5985'
   - step2:
       value: METHOD::chef_bootstrap_check
   - step3:

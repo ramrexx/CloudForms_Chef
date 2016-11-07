@@ -125,13 +125,13 @@ begin
 
   raise "vm: #{@vm.name} primary_ipaddress: #{primary_ipaddress} not present" if primary_ipaddress.blank?
 
-  username = $evm.object['username']
+  username = $evm.object['username'] || '.\localadmin'
   password = $evm.object.decrypt('password')
 
   chef_node_name = get_chef_node_name
 
   unless bootstrapped =~ (/(true|t|yes|y|1)$/i)
-    bootstrap_cmd  = "/usr/bin/knife bootstrap #{primary_ipaddress} -x '#{username}' -P '#{password}' "
+    bootstrap_cmd  = "/usr/bin/knife bootstrap windows winrm #{primary_ipaddress} -x '#{username}' -P '#{password}' "
     bootstrap_cmd += "-E #{chef_environment} -y -N #{chef_node_name} -F json "
     bootstrap_cmd += "--node-ssl-verify-mode none "
     
