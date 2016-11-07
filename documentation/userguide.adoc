@@ -24,6 +24,7 @@ Coming Soon!
 == Table of Contents
 
 * <<Bootstrap via Custom Button>>
+* <<Bootstrap via Provisioning>>
 * <<Add Role via Custom Button>>
 * <<Remove Role via Custom Button>>
 * <<Add Recipe via Custom Button>>
@@ -45,6 +46,16 @@ image:images/vm-bootstrap-button.png[link=images/vm-bootstrap-button.png]
 * Navigate back to your VM. At the bottom of the summary page you should see *Custom Attributes* containing `Chef` attributes. Keep in mind that it could take a minute or so for the attributes to show up.
 
 image:images/vm-bootstrap-customattributes.png[link=images/vm-bootstrap-customattributes.png]
+
+<<top>>
+
+=== Bootstrap via Provisioning
+
+You can add the bootstrap workflow to your provisioning statemachine by adding the following to a step after the `check_provision` step:
+
+ /Integration/Chef/StateMachines/chef_bootstrap_${/#miq_provision.source.platform}
+
+image:images/prov-bootstrap-statemachine.png[link=images/prov-bootstrap-statemachine.png]
 
 <<top>>
 
@@ -165,18 +176,5 @@ image:images/vm-removecookbook-customattributes.png[link=images/vm-removecookboo
 image:images/vm-retire-button.png[link=images/vm-retire-button.png]
 
 * Navigate back to your VM. At the bottom of the summary page you should see all `Chef` *Custom Attributes* and `Tags` cleared.
-
-<<top>>
-
-=== Bootstrap via Provisioning
-
-You can add the bootstrap workflow to your provisioning statemachine by adding the following to a step after the `check_provision` step:
-
- /Integration/Chef/StateMachines/chef_bootstrap_${/#miq_provision.source.platform}
-
-
-image:images/prov-bootstrap-statemachine.png[link=images/prov-bootstrap-statemachine.png]
-
-
 
 <<top>>
