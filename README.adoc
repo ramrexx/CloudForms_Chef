@@ -31,6 +31,7 @@ The purpose of this project is to provide a starting point for integrating Red H
 * <<Import the Custom Buttons>>
 * <<Import the Widgets>>
 * <<Install Chef Development Kit>>
+* <<Update Automate StateMachine>>
 * link:documentation/userguide.adoc[User Guide]
 * link:documentation/troubleshooting.adoc[Troubleshooting Guide]
 * <<Contribute>>
@@ -106,11 +107,10 @@ The `/usr/bin/miqimport` and `/usr/bin/miqexport` utilities are now available to
 NOTE: knife.rb must be correctly configured. More info: https://docs.chef.io/config_rb_knife.html. Below is a sample from a working knife.rb file with bare minimum settings.
 
  cat << EOF > /root/.chef/knife.rb
-  current_dir = File.dirname(__FILE__)
   log_level                 :info
   log_location              STDOUT
   node_name                 "admin"
-  client_key                "#{current_dir}/chef_key.pem"
+  client_key                "/root/chef_key.pem"
   chef_server_url           "https://mychefserver.example.com/organizations/my-org"
   ssl_verify_mode           :verify_none
  EOF
@@ -135,6 +135,21 @@ NOTE: knife.rb must be correctly configured. More info: https://docs.chef.io/con
  ]
 
 * If the knife command(s) above execute without error you are all set!
+
+<<top>>
+
+=== Update Automate StateMachine
+
+* Log into your CloudForms/ManageIQ UI.
+* Navigate to Automate / CloudForms_Chef / Integration / Chef / StateMachines
+** Add your guest OS credentials to each instance below:
+*** chef_bootstrap_linux
+*** chef_bootstrap_unknown
+*** chef_bootstrap_windows
+
+image:documentation/images/chef-automate-instance.png[link=documentation/images/chef-automate-instance.png]
+
+<<top>>
 
 == Contribute
 
