@@ -24,7 +24,7 @@ Coming Soon!
 == Table of Contents
 
 * <<Bootstrap via Custom Button>>
-* <<Bootstrap via Provisioning>>
+* <<Bootstrap via Provisioning Workflow>>
 * <<Add Role via Custom Button>>
 * <<Remove Role via Custom Button>>
 * <<Add Recipe via Custom Button>>
@@ -32,7 +32,7 @@ Coming Soon!
 * <<Add Cookbook via Custom Button>>
 * <<Remove Cookbook via Custom Button>>
 * <<Retire Chef Node/Client via Custom Button>>
-*
+* <<Retire Chef via Retirement Workflow>>
 * link:troubleshooting.adoc[Troubleshooting Guide]
 
 === Bootstrap via Custom Button
@@ -49,7 +49,7 @@ image:images/vm-bootstrap-customattributes.png[link=images/vm-bootstrap-customat
 
 <<top>>
 
-=== Bootstrap via Provisioning
+=== Bootstrap via Provisioning Workflow
 
 You can add the bootstrap workflow to your provisioning statemachine by adding the following to a step after the `check_provision` step:
 
@@ -176,5 +176,15 @@ image:images/vm-removecookbook-customattributes.png[link=images/vm-removecookboo
 image:images/vm-retire-button.png[link=images/vm-retire-button.png]
 
 * Navigate back to your VM. At the bottom of the summary page you should see all `Chef` *Custom Attributes* and `Tags` cleared.
+
+<<top>>
+
+=== Retire Chef via Retirement Workflow
+
+You can add the Chef Retirement workflow to your retirement statemachine(s) by adding the following:
+
+ /Integration/Chef/StateMachines/chef_retire
+
+image:images/chef-retire-statemachine.png[link=images/chef-retire-statemachine.png]
 
 <<top>>

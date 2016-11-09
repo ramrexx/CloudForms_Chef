@@ -24,6 +24,8 @@
 == Table of Contents
 
 * <<Problems running Knife>>
+* <<Open an Issue>>
+* <<Logging>>
 
 === Problems running Knife
 
@@ -31,6 +33,9 @@
 ** Your knife.rb file is not configured properly
 ** The client_key (i.e. root.pem or validator.pem) is not valid
 
+== Logging
+
+** Check the /var/www/miq/vmdb/log/automation.log and /var/www/miq/vmdb/log/evm.log for errors.
 
 == Open an Issue
 ** Still stuck? Open an issue here with a detailed description of your problem: link:https://github.com/ramrexx/CloudForms_Chef/issues[Open an issue]
