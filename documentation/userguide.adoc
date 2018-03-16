@@ -51,10 +51,17 @@ image:images/vm-bootstrap-customattributes.png[link=images/vm-bootstrap-customat
 
 === Bootstrap via Provisioning Workflow
 
-You can add the bootstrap workflow to your provisioning statemachine by adding the following to a step after the `check_provision` step:
+You can also add the bootstrap workflow to your provisioning statemachine(s) by adding
+`/Integration/Chef/StateMachines/chef_bootstrap_${/#miq_provision.source.platform}`
+to a step after the *CheckProvisioned*.
 
- /Integration/Chef/StateMachines/chef_bootstrap_${/#miq_provision.source.platform}
+==== The Infrastructure provisioning statemachine is located:
+`/Infrastructure/VM/Provisioning/StateMachines/VMProvision_VM/template`
 
+==== The Cloud provisioning statemachine is located:
+`/Cloud/VM/Provisioning/StateMachines/VMProvision_VM/template`
+
+Example:
 image:images/prov-bootstrap-statemachine.png[link=images/prov-bootstrap-statemachine.png]
 
 <<top>>

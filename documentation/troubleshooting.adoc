@@ -37,6 +37,12 @@
 
 ** Check the /var/www/miq/vmdb/log/automation.log and /var/www/miq/vmdb/log/evm.log for errors.
 
+== miq_provision is empty during the chef_bootstrap?
+
+** Then you most likely have the chef_bootstrap running from the wrong statemachine. It must
+be in the Infrastructure and/or Cloud provisioning statemachine(s). Do not put it in the Service
+provisioning statemachine.
+
 == Open an Issue
 ** Still stuck? Open an issue here with a detailed description of your problem: link:https://github.com/ramrexx/CloudForms_Chef/issues[Open an issue]
 
