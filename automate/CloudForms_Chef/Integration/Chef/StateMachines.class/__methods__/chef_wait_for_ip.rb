@@ -41,7 +41,7 @@ def check_ipaddress
   log(:info, "vm: #{@vm.name} primary IP address: #{ipaddress}")
 
   if ipaddress.blank? || ipaddress.match(/^(169.254|0)/)
-    vm.refresh
+    @vm.refresh
     log(:warn, "vm: #{@vm.name} IP address: #{ipaddress} not present", true)
     retry_method
   end
